@@ -523,3 +523,37 @@ route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 </html>
 
+
+# ALERT
+
+1. Footer/ Master ( paling bawah )
+@if (Session::has('success'))
+    <script>
+        toastr.success("{{ Session::get('success') }}");
+    </script>
+@endif
+
+@if (Session::has('updated'))
+    <script>
+        toastr.info("{{ Session::get('updated') }}");
+    </script>
+@endif
+
+@if (Session::has('deleted'))
+    <script>
+        toastr.danger("{{ Session::get('deleted') }}");
+    </script>
+@endif
+@if (Session::has('warning'))
+    <script>
+        toastr.danger("{{ Session::get('warning') }}");
+    </script>
+@endif
+
+
+2. @if (Session::has('deleted'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ Session::get('deleted') }}
+                        </div>
+                    @endif
+
